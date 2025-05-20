@@ -30,8 +30,8 @@ class Coffee():
         from order import Order
         return len([order for order in Order.all_orders if order.coffee == self])
     
-    def average_prices(self):
-        prices = "[order.price for order]"
+    def average_price(self):
+        prices = "[order.price for order in Order.all_orders if order.coffee == self]"
         if not prices:
          return 0
         return sum(prices) / len(prices)
